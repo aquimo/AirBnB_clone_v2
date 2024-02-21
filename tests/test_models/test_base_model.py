@@ -168,7 +168,7 @@ class TestBaseModel(unittest.TestCase):
 
     @classmethod
     def teardown(cls):
-        """At the end of the test this will tear it down"""
+        """Test this will tear it down"""
         del cls.base
 
     def tearDown(self):
@@ -193,7 +193,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(BaseModel.to_dict.__doc__)
 
     def test_method_BaseModel(self):
-        """chekcing if Basemodel have methods"""
+        """Check if Basemodel have methods"""
         self.assertTrue(hasattr(BaseModel, "__init__"))
         self.assertTrue(hasattr(BaseModel, "save"))
         self.assertTrue(hasattr(BaseModel, "to_dict"))
