@@ -161,22 +161,22 @@ class Test_docstrings(unittest.TestCase):
 
 
 class TestBaseModel(unittest.TestCase):
-    """this will test the base model class x"""
+    """This will test the base model class x"""
 
     @classmethod
     def setUpClass(cls):
-        """setup for the test"""
+        """Setup for the test"""
         cls.base = BaseModel()
         cls.base.name = "Kev"
         cls.base.num = 20
 
     @classmethod
     def teardown(cls):
-        """at the end of the test this will tear it down"""
+        """At the end of the test this will tear it down"""
         del cls.base
 
     def tearDown(self):
-        """teardown"""
+        """Teardown"""
         try:
             os.remove("file.json")
         except Exception:
@@ -189,7 +189,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(p.total_errors, 0, "fix pep8")
 
     def test_checking_for_docstring_BaseModel(self):
-        """checking for docstrings"""
+        """Check for docstrings"""
         self.assertIsNotNone(BaseModel.__doc__)
         self.assertIsNotNone(BaseModel.__init__.__doc__)
         self.assertIsNotNone(BaseModel.__str__.__doc__)
@@ -203,16 +203,16 @@ class TestBaseModel(unittest.TestCase):
         self.assertTrue(hasattr(BaseModel, "to_dict"))
 
     def test_init_BaseModel(self):
-        """test if the base is an type BaseModel"""
+        """Type BaseModel"""
         self.assertTrue(isinstance(self.base, BaseModel))
 
     def test_save_BaesModel(self):
-        """test if the save works"""
+        """Save works"""
         self.base.save()
         self.assertNotEqual(self.base.created_at, self.base.updated_at)
 
     def test_to_dict_BaseModel(self):
-        """test if dictionary works"""
+        """test dictionary"""
         base_dict = self.base.to_dict()
         self.assertEqual(self.base.__class__.__name__, 'BaseModel')
         self.assertIsInstance(base_dict['created_at'], str)
