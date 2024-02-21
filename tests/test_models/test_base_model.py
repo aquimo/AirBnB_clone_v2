@@ -152,10 +152,6 @@ class Test_docstrings(unittest.TestCase):
     @classmethod
     def setup_class(self):
         """
-        inspect.getmembers(object, [predicate])
-        Return all the members of an object in a list of (name, value)
-        pairs sorted by name
-        only members for which the predicate returns a true value are included
         """
         self.obj_members(BaseModel, inspect.isfunction)
 
@@ -183,7 +179,7 @@ class TestBaseModel(unittest.TestCase):
             pass
 
     def test_pep8_BaseModel(self):
-        """Testing for pep8"""
+        """Test for pep8"""
         style = pep8.StyleGuide(quiet=True)
         p = style.check_files(['models/base_model.py'])
         self.assertEqual(p.total_errors, 0, "fix pep8")
