@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 2.Script to start a Flask web application with 3 view functions """
+""" 2. Script to start a Flask web application with 3 view functions """
 
 from flask import Flask
 
@@ -22,7 +22,7 @@ def hello():
 
 @app.route('/c/<text>')
 def c_text(text):
-    """replace text with variable. """
+    """ replace text with variable. """
     text = text.replace('_', ' ')
     return 'C {}'.format(text)
 

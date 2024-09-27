@@ -1,54 +1,25 @@
 #!/usr/bin/python3
-""" Class of test_city"""
-from tests.test_models.test_base_model import test_basemodel
+"""test for city"""
+import unittest
+import os
 from models.city import City
-import pycodestyle
-
-
-class test_City(test_basemodel):
-    """ """
-
-    def __init__(self, *args, **kwargs):
-        """ """
-        super().__init__(*args, **kwargs)
-        self.name = "City"
-        self.value = City
-
-    def test_state_id(self):
-        """ """
-        new = self.value()
-        self.assertEqual(type(new.state_id), str)
-
-    def test_name(self):
-        """ """
-        new = self.value()
-        self.assertEqual(type(new.name), str)
-
-
-class Test_PEP8(unittest.TestCase):
-    """ """
-
-    def test_pep8_user(self):
-        """style"""
-        pep8style = pycodestyle.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/city.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+from models.base_model import BaseModel
+import pep8
 
 
 class TestCity(unittest.TestCase):
-    """Test the city class X"""
+    """this will test the city class"""
 
     @classmethod
     def setUpClass(cls):
-        """WIll be used to set up for test"""
+        """set up for test"""
         cls.city = City()
         cls.city.name = "LA"
         cls.city.state_id = "CA"
 
     @classmethod
     def teardown(cls):
-        """At the end of the test this will tear it down"""
+        """at the end of the test this will tear it down"""
         del cls.city
 
     def tearDown(self):
@@ -86,12 +57,12 @@ class TestCity(unittest.TestCase):
         self.assertEqual(type(self.city.state_id), str)
 
     def test_save_City(self):
-        """test the save"""
+        """test if the save works"""
         self.city.save()
         self.assertNotEqual(self.city.created_at, self.city.updated_at)
 
     def test_to_dict_City(self):
-        """test dict"""
+        """test if dictionary works"""
         self.assertEqual('to_dict' in dir(self.city), True)
 
 
